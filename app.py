@@ -9,12 +9,6 @@ import numpy as np
 from pytorch_grad_cam import GradCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
 import matplotlib.pyplot as plt
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torchvision.models as models
-import streamlit as st
 import os
 import requests
 
@@ -138,7 +132,7 @@ if None not in images and st.button("开始预测"):
 
         # ---- Grad-CAM 可视化 ----
         st.subheader("Grad-CAM 可视化结果")
-        view_names = ['侧位', '过屈位', '过伸位']
+        view_names = ['lateral', 'flexion', 'extension']
 
         fig, axes = plt.subplots(1, 3, figsize=(15, 5))
         for i in range(3):
